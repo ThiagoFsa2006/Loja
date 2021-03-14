@@ -24,5 +24,3 @@ print('Idade: ', idade, ' anos.\n')
 
 limite_de_credito = (salario * (idade / 1000)) + 100
 print('Limite de crédito: R$ %.2f' % (limite_de_credito))
-print('Limite de crédito: R$ %.2f' % (limite_de_credito))
-print('Limite de crédito: R$ %.2f' % (limite_de_credito))
