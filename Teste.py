@@ -1,22 +1,16 @@
 import pandas as pd
 
-cargo = "Analista"
-salario = 3000
-Ano_de_nascimento = 1992
-idade = 29
-limite_de_credito = 150
 
-d = {"Cargo": cargo, "salario": salario, "Ano de nascimento":
-     Ano_de_nascimento, "Idade": idade, "Limite de credito": limite_de_credito}
+df_index = ["Cargo", "Salario"]
+Cargo = "Analista Contábil"
 
-df_index = ["Cargo", "Salario", "Ano de nascimento",
-            "Idade", "Limite de crédito"]
+df2 = pd.DataFrame(
+    {
+        "Dados": (str(Cargo),)
 
-data = {"Dados": [cargo, salario, Ano_de_nascimento, idade, limite_de_credito]
-        }
-df = pd.DataFrame(data,  columns=["Dados"], index=df_index)
+    }, index=df_index
+)
+df2.loc["Salario", "Dados"] = "NEW"
 
-d = pd.Series(d)
-print(df)
 
-print(d)
+print(df2)
