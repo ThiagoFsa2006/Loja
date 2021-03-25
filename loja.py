@@ -1,6 +1,5 @@
 from colorama import Fore
 from datetime import datetime
-# import pandas as pd
 
 Loja = "Compre Tudo"
 Proprietario = "Thiago"
@@ -27,14 +26,6 @@ print('Idade: ', idade, 'anos.\n')
 limite_de_credito = (salario * (idade / 1000)) + 100
 print(Fore.YELLOW + 'Limite de crédito: R$ %.2f\n' %
       (limite_de_credito) + Fore.RESET)
-
-'''
-professor pode ignorar esta parte...
-d = {"Cargo": cargo, "salario": salario, "Ano de nascimento":
-     ano_nascimento, "Idade": idade, "Limite de credito":   limite_de_credito}
-d = pd.Series(d)
-print(d)
-'''
 
 condA = (limite_de_credito * 0.6)
 condB = (limite_de_credito * 0.9)
