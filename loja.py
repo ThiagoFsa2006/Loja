@@ -50,7 +50,7 @@ else:
 
 # VERIFICAÇÃO DE POSSIVEL DESCONTO DE VALOR DO PRODUTO ESTIVER ENTRE
 # NUMERO DE CARACTERES DO NOME COMPLETO E IDADE
-# NESTE CASO A VARIAVEL fullname TEM 31 CARACTERES
+# NESTE CASO A VARIAVEL fullname TEM 31 CARACTERES DO ALUNO
 
 if preco_prod > fullname and preco_prod < idade:
     preco_prod = preco_prod - (preco_prod * (name / 100))
