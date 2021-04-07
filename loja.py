@@ -8,30 +8,34 @@ print("\n\nEsta é a loja", Loja, ", bem-vindo!\nAqui quem fala é o",
 
 print(Fore.YELLOW + "Irei realizar sua análise de crédito.\n" + Fore.RESET)
 
+# VERIFICAÇÃO DO LIMITE DE CREDITO DO CLIENTE
+
 curr = datetime.now()
-cargo = str(input("Digite seu cargo: "))
-salario = float(input("Digite seu salario: "))
-ano_nascimento = int(input("Digite seu ano de nascimento:"))
+cargo = str(input("Digite seu cargo:\t\t"))
+salario = float(input("Digite seu salario:\t\t"))
+ano_nascimento = int(input("Digite seu ano de nascimento:\t"))
 ano_atual = datetime.strftime(curr, "%Y")
 idade = int(ano_atual) - int(ano_nascimento)
 fullname = len('Thiago Felipe Farias dos Santos')
 name = len(Proprietario)
 
-
-print("\nCargo: ", cargo)
-print('Salario: R$ %.2f' % float(salario))
-print("Ano de nascimento: ", str(ano_nascimento))
-print('Idade: ', idade, 'anos.\n')
+print("\nCargo:\t\t\t\t{}".format(cargo.capitalize()))
+print('Salario:\t\t\tR$ %.2f' % float(salario))
+print("Ano de nascimento:\t\t" + str(ano_nascimento))
+print('Idade:\t\t\t\t' + str(idade) + ' anos.\n')
 
 limite_de_credito = (salario * (idade / 1000)) + 100
-print(Fore.YELLOW + 'Limite de crédito: R$ %.2f\n' %
+print(Fore.YELLOW + 'Limite de crédito:\t\tR$ %.2f\n' %
       (limite_de_credito) + Fore.RESET)
+
+# VERIFICAÇÃO SE O CLIENTE PODERA COMPRAR A VISTA OU,
+# SE DEVERA PARCELAR OU AINDA SE ESTA BLOQUADO PARA A COMPRA
 
 condA = (limite_de_credito * 0.6)
 condB = (limite_de_credito * 0.9)
 
-produto = str(input("Digite o nome do produto: "))
-preco_prod = float(input("Digite o preço do produto: "))
+produto = str(input("Digite o nome do produto:\t"))
+preco_prod = float(input("Digite o preço do produto:\t"))
 
 if preco_prod <= condA:
     print(Fore.GREEN + "\nAprovado!\n" + Fore.RESET)
@@ -44,10 +48,14 @@ elif preco_prod < limite_de_credito:
 else:
     print(Fore.RED + "\nBloqueado!\n" + Fore.RESET)
 
-if preco_prod < idade:
+# VERIFICAÇÃO DE POSSIVEL DESCONTO DE VALOR DO PRODUTO ESTIVER ENTRE
+# NUMERO DE CARACTERES DO NOME COMPLETO E IDADE
+# NESTE CASO A VARIAVEL fullname TEM 31 CARACTERES
+
+if preco_prod > fullname and preco_prod < idade:
     preco_prod = preco_prod - (preco_prod * (name / 100))
-    print("Desconto:", str(name), '%')
-    print("Valor do produto com desconto: R$ %.2f\n" % (preco_prod))
+    print("Desconto:\t\t\t" + str(name) + '%')
+    print("Valor do produto com desconto:\tR$ %.2f\n" % (preco_prod))
 else:
-    print("Produto:", str(produto))
-    print("Valor do produto: R$ %.2f\n" % preco_prod)
+    print("Produto:\t\t\t" + str(produto).capitalize())
+    print("Valor do produto:\t\tR$%.2f\n" % preco_prod)
