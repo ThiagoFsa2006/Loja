@@ -28,6 +28,7 @@ def obter_limite():
     print('Idade:\t\t\t\t' + str(idade) + ' anos.\n')
     print(Fore.YELLOW + 'Limite de crédito:\t\tR$ %.2f\n' %
           (limite_de_credito) + Fore.RESET)
+    return limite_de_credito
 
 
 obter_limite()
