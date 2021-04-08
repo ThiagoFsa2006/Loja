@@ -28,13 +28,15 @@ def obter_limite():
     print('Idade:\t\t\t\t' + str(idade) + ' anos.\n')
     print(Fore.YELLOW + 'Limite de crédito:\t\tR$ %.2f\n' %
           (limite_de_credito) + Fore.RESET)
-    return limite_de_credito, idade
+
+
+obter_limite()
 
 # VERIFICAÇÃO SE O CLIENTE PODERA COMPRAR A VISTA OU,
 # SE DEVERA PARCELAR OU AINDA SE ESTA BLOQUADO PARA A COMPRA
 
 
-def verifica_produto(limite_de_credito=None, idade=None):
+def verifica_produto():
 
     condA = (limite_de_credito * 0.6)
     condB = (limite_de_credito * 0.9)
@@ -66,5 +68,4 @@ def verifica_produto(limite_de_credito=None, idade=None):
     return
 
 
-obter_limite()
 verifica_produto()
