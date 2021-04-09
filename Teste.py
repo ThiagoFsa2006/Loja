@@ -5,16 +5,8 @@ def obterLimite():
     salario = float(input("Digite seu salario: "))
     idade = int(input("Digite sua idade: "))
     limite = salario/idade
-    print(limite)
+    return limite, idade, salario
 
 
-obterLimite()
-
-
-def salario():
-
-    condA = salario
-    print(condA)
-
-
-salario()
+limite = obterLimite()
+print(limite)
