@@ -31,16 +31,16 @@ def obter_limite():
     return limite_de_credito
 
 
-obter_limite()
+limite = obter_limite()
 
 # VERIFICAÇÃO SE O CLIENTE PODERA COMPRAR A VISTA OU,
 # SE DEVERA PARCELAR OU AINDA SE ESTA BLOQUADO PARA A COMPRA
 
 
-def verifica_produto():
+def verifica_produto(limite):
 
-    condA = (limite_de_credito * 0.6)
-    condB = (limite_de_credito * 0.9)
+    condA = (limite * 0.6)
+    condB = (limite * 0.9)
     produto = str(input("Digite o nome do produto:\t"))
     preco_prod = float(input("Digite o preço do produto:\t"))
 
@@ -49,7 +49,7 @@ def verifica_produto():
     elif preco_prod < condB:
         print(Fore.LIGHTYELLOW_EX + "\nLiberado para parcelar em 2 vezes!\n" +
               Fore.RESET)
-    elif preco_prod < limite_de_credito:
+    elif preco_prod < limite:
         print(Fore.YELLOW + "\nLiberado para parcelar em 3 ou mais vezes!\n" +
               Fore.RESET)
     else:
@@ -59,14 +59,23 @@ def verifica_produto():
     # NUMERO DE CARACTERES DO NOME COMPLETO E IDADE
     # NESTE CASO A VARIAVEL fullname TEM 31 CARACTERES DO ALUNO
 
-    if preco_prod > fullname and preco_prod < idade:
+    if preco_prod > fullname and preco_prod < 50:
         preco_prod = preco_prod - (preco_prod * (name / 100))
         print("Desconto:\t\t\t" + str(name) + '%')
         print("Valor do produto com desconto:\tR$ %.2f\n" % (preco_prod))
+    elif preco_prod > limite:
+        print("Não há limite disponivel para esta compra")
     else:
         print("Produto:\t\t\t" + str(produto).capitalize())
         print("Valor do produto:\t\tR$%.2f\n" % preco_prod)
-    return
+    return preco_prod
 
 
-verifica_produto()
+qtde = int(input("Quantos itens pretende informar? "))
+
+i = 0
+while i < qtde:
+    limite = limite - verifica_produto(limite)
+    print(Fore.YELLOW + 'Limite disponivel para compras:\t\tR$ %.2f\n' %
+          (limite) + Fore.RESET)
+    i = i + 1
